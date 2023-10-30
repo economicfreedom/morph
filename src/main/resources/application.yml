@@ -1,0 +1,37 @@
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql://ls-16ce926b4e8e583903503d8632969b8b80e72c9e.cmta58hzn9se.ap-northeast-2.rds.amazonaws.com:3306/vrink?serverTimeZone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: dbmasteruser
+    password: ?0=cf,Ky48%u,)n2V7K1:zIhcP-PyX]G
+server:
+  port: 8090
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+  tomcat:
+    max-http-form-post-size: 52428800
+    max-swallow-size: 52428800
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/**/**.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+org:
+  zerock:
+    upload:
+      path: \src\main\resources\static
+
+openai:
+  model: gpt-3.5-turbo-16k-0613
+  api:
+    url: https://api.openai.com/v1/chat/completions
+    key: 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
