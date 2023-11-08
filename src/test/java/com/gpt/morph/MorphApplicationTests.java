@@ -36,7 +36,8 @@ class MorphApplicationTests {
     private static final String PROMPT_2 = "]\n" +
             "\n" +
             "이 단어들은 해당 작가의 리뷰에 있는 리뷰들을 형태소 분석하여 일반명사,고유명사,형용사,일반 부사로만 이루어진 단어들 이야 이 단어들을 읽고  감정분석을 해줘\n" +
-            "결과 앞에는 $붙여주고 결과에 끝에도 $를 붙여줘";
+            "결과 문장 앞에는 $붙여주고 결과 문장 끝에도 $를 붙여줘";
+//            "결과 앞에는 $붙여주고 결과에 끝에도 $를 붙여줘";
 
     private final RestTemplate template;
 
@@ -61,7 +62,7 @@ class MorphApplicationTests {
         List<Integer> editorIds = morphService.getEditorIds();
 
         for (Integer editorId : editorIds) {
-
+            System.out.println("작가 아이디 : "+editorId);
             List<String> reviews = morphService.getReviews(editorId);
 
             for (String review : reviews) {
@@ -99,6 +100,8 @@ class MorphApplicationTests {
                 findedRes = matcher.group(1);
             }
             morphService.save(findedRes,editorId);
+            stringBuffer.setLength(0);
+            res.setLength(0);
 
 
 
